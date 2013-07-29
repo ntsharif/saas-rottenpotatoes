@@ -7,7 +7,19 @@ class MoviesController < ApplicationController
   end
 
   def index
+    #debugger
     @movies = Movie.all
+    if params[:order]
+      @movies = Movie.order(params[:order]+" ASC")
+
+      #I don't like this code, it's repetitve 
+      if params[:order] == "title"
+        @classtitle = "hilite"
+      elsif params[:order] == "release_date"
+        @classrelease_date = "hilite"
+      end
+     
+    end
   end
 
   def new
