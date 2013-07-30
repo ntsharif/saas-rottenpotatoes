@@ -44,7 +44,7 @@ class MoviesController < ApplicationController
         @classrelease_date = "hilite"
       end
     else
-      @movies = Movie.find(:all, :conditions => {:rating => @selected})
+      @movies = Movie.find(:all, :conditions => {:rating => Movie.selected})
     end
     #@selected = Movie.selected
   end
